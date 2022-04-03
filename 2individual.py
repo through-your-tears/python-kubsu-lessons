@@ -8,7 +8,7 @@ def main():
     count = 0
     answers = []
     while len(c) > 2:
-        sorted_keys = sorted(c, key=lambda x: c.get(x))
+        sorted_keys = sorted(c, key=c.get)
         c[sorted_keys[-1]] -= 1
         c[sorted_keys[-2]] -= 1
         c[sorted_keys[-3]] -= 1
