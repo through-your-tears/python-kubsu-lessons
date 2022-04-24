@@ -52,13 +52,17 @@ def init_db(con: sqlite3.Connection):
     cur.execute("INSERT INTO SWEETNESS (SWEETNESS_NAME) VALUES ('Сухое');")
     cur.execute("INSERT INTO SWEETNESS (SWEETNESS_NAME) VALUES ('Полусладкое');")
     cur.execute("INSERT INTO SWEETNESS (SWEETNESS_NAME) VALUES ('Сладкое');")
+    cur.execute("INSERT INTO COUNTRIES (COUNTRY_NAME) VALUES ('Россия');")
+    cur.execute("INSERT INTO COUNTRIES (COUNTRY_NAME) VALUES ('Франция');")
+    cur.execute("INSERT INTO WINE_GRADES (WINE_GRADE_NAME, DESCRIPTION, COLOR) VALUES ('Риоха', 'Какое-то крутое описание', 'Красное');")
+    cur.execute("INSERT INTO WINE_GRADES (WINE_GRADE_NAME, DESCRIPTION, COLOR) VALUES ('Каберне', 'Какое-то совсем крутое описание', 'Красное');")
 
 
 @sqlite_connection
 def get_all_wines(con: sqlite3.Connection) -> List:
     cur = con.cursor()
     cur.execute('''
-        SELECT G.WINE_GRADE_NAME, W.WINE_EXTRACT, S.SWEETNESS_NAME, C.COUNTRY_NAME, W.DESCRIPTION FROM WINES W
+        SELECT G.WINE_GRADE_NAME, G.COLOR, W.WINE_EXTRACT, S.SWEETNESS_NAME, C.COUNTRY_NAME, W.DESCRIPTION FROM WINES W
         LEFT OUTER JOIN SWEETNESS S ON W.SWEETNESS_ID = S.SWEETNESS_ID
         LEFT OUTER JOIN WINE_GRADES G ON W.WINE_GRADE_ID = G.WINE_GRADE_ID
         LEFT OUTER JOIN COUNTRIES C ON C.COUNTRY_ID = W.COUNTRY_ID;
