@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить сорт</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Добавить сорт в базу данных</h1>
+    <form method="post" action="../cgi-bin/add_wine_grade.py">
+        <label>
+            Название сорта:
+            <input type="text" name="field-gradename">
+        </label><br>
+        <label>
+            Описание:
+            <textarea name="field-descr"></textarea>
+        </label><br>
+        <label>
+            Цвет:
+            <select name="field-color">
+                <option value="Белое" selected="selected">Белое</option>
+                <option value="Красное">Красное</option>
+            </select>
+        </label><br>
+        <input class="btn btn-success" type="submit" value="Отправить">
+    </form>
+</body>
+</html>
