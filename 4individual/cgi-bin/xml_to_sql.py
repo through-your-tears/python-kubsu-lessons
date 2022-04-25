@@ -22,25 +22,6 @@ def xml_to_sql(con: sqlite3.Connection):
             except ValueError:
                 a.append(value)
         ins.append(a)
-    print("Content-type: text/html")
-    print(f'''
-            <!DOCTYPE html>
-            <html lang="ru">
-                <head>
-                    <title>БД</title>
-                    <meta charset="UTF-8">
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-                </head>
-                <body>
-                    <ul>''')
-    for row in ins:
-        print(f'<li>{row}</li>')
-    print('''
-        </ul>
-        </body>
-        </html>
-    
-    ''')
     # con.row_factory = sqlite3.Row
     cur = con.cursor()
     cur.executemany("""
@@ -49,3 +30,20 @@ def xml_to_sql(con: sqlite3.Connection):
 
 
 xml_to_sql()
+print("Content-type: text/html")
+print(f'''
+            <!DOCTYPE html>
+            <html lang="ru">
+                <head>
+                    <title>БД</title>
+                    <meta charset="UTF-8">
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+                </head>
+                <body>
+                <h1>Импорт из xml файла в БД выполнен</h1><br>
+                <a class="btn btn-warning" href="../cgi-bin/get_db.py">На главную</a><br>
+                <a class="btn btn-success" href="../templates/index.html">На главную</a><br>
+        </body>
+        </html>
+
+    ''')
