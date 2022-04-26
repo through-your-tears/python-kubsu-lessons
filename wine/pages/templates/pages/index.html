@@ -1,0 +1,15 @@
+{% extends "pages/base.html" %}
+{% block title %} Страница про вино {% endblock %}
+{% block content %}
+    <h1>Вино</h1>
+    <ul>
+    {% for wine in wines %}
+        <li>
+            <p>{{ wine.wine_grade }}</p>
+            <p>{{ wine.extract }}</p>
+            <p>{{ wine.sweetness }}</p>
+            <a href="/wine/{{wine.id}}" class="btn btn-success">Посмотреть страницу вина</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
