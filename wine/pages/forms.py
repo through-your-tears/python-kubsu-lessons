@@ -21,4 +21,4 @@ class AddWine(models.ModelForm):
 
     class Meta:
         model = Wine
-        fields = ('title', 'extract', 'country', 'sweetness', 'wine_grade')
+        fields = ('text', 'extract', 'country', 'sweetness', 'wine_grade')

@@ -1,15 +1,14 @@
 {% extends "pages/base.html" %}
-{% block title %} Вино {% endblock %}
+{% block title %} Сорт {{ wine_grade.title }} {% endblock %}
 {% block content %}
 <h1>
-    {{ wine.wine_grade }}, {{ wine.sweetness }}<br>
-    Выдержка - {{ wine.extract }}<br>
-    Страна - {{ wine.country }}
+    {{ wine_grade.title }}<br>
+    Цвет - {{ wine.extract }}<br>
 </h1>
 <p>
-    {{ wine.text }}
+    {{ wine_grade.text }}
 </p>
-<h1>Изменить вино</h1>
+<h1>Изменить сорт</h1>
 <form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}

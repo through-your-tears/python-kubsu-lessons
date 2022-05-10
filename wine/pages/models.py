@@ -26,7 +26,7 @@ class WineGrade(models.Model):
         (1, 'Красное')
     ]
     title = models.CharField(max_length=20, unique=True, verbose_name='Название сорта')
-    color = models.CharField(max_length=8, choices=choices, verbose_name='Цвет вина')
+    color = models.IntegerField(choices=choices, verbose_name='Цвет вина')
     text = models.TextField(verbose_name='Описание сорта')
 
     def __str__(self):

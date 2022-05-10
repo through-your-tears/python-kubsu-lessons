@@ -11,5 +11,28 @@
             <a href="/wine/{{wine.id}}" class="btn btn-success">Посмотреть страницу вина</a>
         </li>
     {% endfor %}
+        <a href="{% url 'add_wine' %}" class="btn btn-success">Добавить вино</a>
+    </ul>
+
+    <h1>Сорта вина</h1>
+    <ul>
+    {% for grade in wine_grades %}
+        <li>
+            <p>{{ grade.title }}</p>
+            <p>{{ grade.color }}</p>
+            <p>{{ grade.text }}</p>
+            <a href="/wine_grade/{{grade.id}}" class="btn btn-success">Посмотреть страницу сорта</a>
+        </li>
+    {% endfor %}
+        <a href="{% url 'add_wine_grade' %}" class="btn btn-success">Добавить сорт вина</a>
+    </ul>
+    <h1>Винные страны</h1>
+    <ul>
+    {% for country in countries %}
+        <li>
+            {{ country }}
+        </li>
+    {% endfor %}
+        <a href="{% url 'add_country' %}" class="btn btn-success">Добавить страну</a>
     </ul>
 {% endblock %}
