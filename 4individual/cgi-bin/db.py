@@ -12,7 +12,7 @@ def sqlite_connection(func):
             kwargs['con'] = con
             res = func(*args, **kwargs)
             con.commit()
-            return res
+        return res
     return wrapper
 
 
