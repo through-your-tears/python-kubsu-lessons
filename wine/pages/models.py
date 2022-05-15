@@ -3,6 +3,18 @@ from django.db import models
 # Create your models here.
 
 
+class Color(models.Model):
+
+    class Meta:
+        verbose_name = 'Цвет вина'
+        verbose_name_plural = 'Цвета вина'
+
+    name = models.CharField(max_length=10, verbose_name='Цвет')
+
+    def __str__(self):
+        return self.name
+
+
 class Sweetness(models.Model):
 
     class Meta:
@@ -21,12 +33,8 @@ class WineGrade(models.Model):
         verbose_name = 'Сорт вина'
         verbose_name_plural = 'Сорта вина'
 
-    choices = [
-        (0, 'Белое'),
-        (1, 'Красное')
-    ]
     title = models.CharField(max_length=20, unique=True, verbose_name='Название сорта')
-    color = models.IntegerField(choices=choices, verbose_name='Цвет вина')
+    color = models.ForeignKey(Color, on_delete=models.CASCADE)
     text = models.TextField(verbose_name='Описание сорта')
 
     def __str__(self):

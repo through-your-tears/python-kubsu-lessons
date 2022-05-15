@@ -5,9 +5,7 @@
     <ul>
     {% for wine in wines %}
         <li>
-            <p>{{ wine.wine_grade }}</p>
-            <p>{{ wine.extract }}</p>
-            <p>{{ wine.sweetness }}</p>
+            <p>{{ wine.wine_grade }}, {{ wine.extract }}, {{ wine.sweetness }}</p>
             <a href="/wine/{{wine.id}}" class="btn btn-success">Посмотреть страницу вина</a>
         </li>
     {% endfor %}
@@ -18,9 +16,7 @@
     <ul>
     {% for grade in wine_grades %}
         <li>
-            <p>{{ grade.title }}</p>
-            <p>{{ grade.color }}</p>
-            <p>{{ grade.text }}</p>
+            <p>{{ grade.title }}, {{ grade.color }}, {{ grade.text }}</p>
             <a href="/wine_grade/{{grade.id}}" class="btn btn-success">Посмотреть страницу сорта</a>
         </li>
     {% endfor %}
