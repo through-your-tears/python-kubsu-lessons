@@ -59,7 +59,7 @@ def add_country(request):
         form = AddCountry(request.POST)
         if form.is_valid():
             form.save()
-            redirect('home')
+            return redirect('home')
         else:
             return HttpResponse('Форма введена с ошибкой')
     else:
@@ -75,7 +75,7 @@ def add_wine_grade(request):
         form = AddWineGrade(request.POST)
         if form.is_valid():
             form.save()
-            redirect('home')
+            return redirect('home')
         else:
             return HttpResponse('Форма введена с ошибкой')
     else:
@@ -91,7 +91,7 @@ def add_wine(request):
         form = AddWine(request.POST)
         if form.is_valid():
             form.save()
-            redirect('home')
+            return redirect('home')
         else:
             return HttpResponse('Форма введена с ошибкой')
     else:

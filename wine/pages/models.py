@@ -9,7 +9,7 @@ class Color(models.Model):
         verbose_name = 'Цвет вина'
         verbose_name_plural = 'Цвета вина'
 
-    name = models.CharField(max_length=10, verbose_name='Цвет')
+    name = models.CharField(max_length=10, verbose_name='Цвет', unique=True)
 
     def __str__(self):
         return self.name
@@ -34,7 +34,7 @@ class WineGrade(models.Model):
         verbose_name_plural = 'Сорта вина'
 
     title = models.CharField(max_length=20, unique=True, verbose_name='Название сорта')
-    color = models.ForeignKey(Color, on_delete=models.CASCADE)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, verbose_name='Цвет винограда')
     text = models.TextField(verbose_name='Описание сорта')
 
     def __str__(self):
@@ -61,6 +61,6 @@ class Wine(models.Model):
 
     extract = models.IntegerField(verbose_name='Выдержка(в годах)')
     text = models.TextField(verbose_name='Описание самого вина')
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
-    sweetness = models.ForeignKey(Sweetness, on_delete=models.SET_NULL, null=True)
-    wine_grade = models.ForeignKey(WineGrade, on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, verbose_name='Страна производства')
+    sweetness = models.ForeignKey(Sweetness, on_delete=models.SET_NULL, null=True, verbose_name='Сладость вина')
+    wine_grade = models.ForeignKey(WineGrade, on_delete=models.CASCADE, verbose_name='Сорт вина')

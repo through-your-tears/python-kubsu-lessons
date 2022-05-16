@@ -9,6 +9,7 @@
             <a href="/wine/{{wine.id}}" class="btn btn-success">Посмотреть страницу вина</a>
         </li>
     {% endfor %}
+        <br>
         <a href="{% url 'add_wine' %}" class="btn btn-success">Добавить вино</a>
     </ul>
 
@@ -20,6 +21,7 @@
             <a href="/wine_grade/{{grade.id}}" class="btn btn-success">Посмотреть страницу сорта</a>
         </li>
     {% endfor %}
+        <br>
         <a href="{% url 'add_wine_grade' %}" class="btn btn-success">Добавить сорт вина</a>
     </ul>
     <h1>Винные страны</h1>
@@ -29,6 +31,7 @@
             {{ country }}
         </li>
     {% endfor %}
+        <br>
         <a href="{% url 'add_country' %}" class="btn btn-success">Добавить страну</a>
     </ul>
 {% endblock %}
