@@ -2,36 +2,66 @@
 {% block title %} Страница про вино {% endblock %}
 {% block content %}
     <h1>Вино</h1>
-    <ul>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Сорт вина</th>
+            <th>Выдержка в годах</th>
+            <th>Сладость</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for wine in wines %}
-        <li>
-            <p>{{ wine.wine_grade }}, {{ wine.extract }}, {{ wine.sweetness }}</p>
-            <a href="/wine/{{wine.id}}" class="btn btn-success">Посмотреть страницу вина</a>
-        </li>
+        <tr>
+            <td>{{ wine.wine_grade }}</td>
+            <td>{{ wine.extract }}</td>
+            <td>{{ wine.sweetness }}</td>
+            <td>{{ wine.text }}</td>
+            <td><a href="/wine/{{wine.id}}" class="btn btn-warning">Посмотреть страницу вина</a></td>
+        </tr>
     {% endfor %}
+        </tbody>
         <br>
-        <a href="{% url 'add_wine' %}" class="btn btn-success">Добавить вино</a>
-    </ul>
-
+    </table>
+    <a href="{% url 'add_wine' %}" class="btn btn-dark">Добавить вино</a>
     <h1>Сорта вина</h1>
-    <ul>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Сорт</th>
+            <th>Цвет</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for grade in wine_grades %}
-        <li>
-            <p>{{ grade.title }}, {{ grade.color }}, {{ grade.text }}</p>
-            <a href="/wine_grade/{{grade.id}}" class="btn btn-success">Посмотреть страницу сорта</a>
-        </li>
+        <tr>
+            <td>{{ grade.title }}</td>
+            <td>{{ grade.color }}</td>
+            <td>{{ grade.text }}</td>
+            <td><a href="/wine_grade/{{grade.id}}" class="btn btn-warning">Посмотреть страницу сорта</a></td>
+        </tr>
     {% endfor %}
+        </tbody>
         <br>
-        <a href="{% url 'add_wine_grade' %}" class="btn btn-success">Добавить сорт вина</a>
-    </ul>
+    </table>
+    <a href="{% url 'add_wine_grade' %}" class="btn btn-dark">Добавить сорт вина</a>
     <h1>Винные страны</h1>
-    <ul>
-    {% for country in countries %}
-        <li>
-            {{ country }}
-        </li>
-    {% endfor %}
-        <br>
-        <a href="{% url 'add_country' %}" class="btn btn-success">Добавить страну</a>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Страна</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for country in countries %}
+                <tr>
+                    <td>{{ country }}</td>
+                </tr>
+            {% endfor %}
+                <br>
+        </tbody>
+    </table>
+    <a href="{% url 'add_country' %}" class="btn btn-dark">Добавить страну</a>
 {% endblock %}

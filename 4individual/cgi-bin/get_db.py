@@ -43,14 +43,14 @@ try:
 
                     </ul>
                 <form action="../cgi-bin/sql_to_xml.py">
-                    <input type="submit" class="btn btn-success" value="Сгенерировать отчёт по вину в xml">
+                    <input type="submit" class="btn btn-primary" value="Сгенерировать отчёт по вину в xml">
                 </form>
     ''')
 except Exception:
     pass
 print('''
                 <form action="../cgi-bin/xml_to_sql.py">
-                    <input type="submit" class="btn btn-success" value="Создать БД из xml">
+                    <input type="submit" class="btn btn-warning" value="Создать БД из xml">
                 </form><br>
                 <a class="btn btn-success" href="../templates/index.html">На главную</a><br>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

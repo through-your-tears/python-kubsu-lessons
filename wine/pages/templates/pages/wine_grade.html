@@ -8,10 +8,10 @@
 <p>
     {{ wine_grade.text }}
 </p>
-<h1>Изменить сорт</h1>
+<h1 class="text-danger">Изменить сорт</h1>
 <form method="post" action="">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success" type="submit">Изменить</button>
+    {{ form.as_ul }}
+    <button class="btn btn-warning" type="submit">Изменить</button>
 </form>
 {% endblock %}

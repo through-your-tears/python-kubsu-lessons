@@ -1,9 +1,10 @@
 {% extends "pages/base.html" %}
 {% block title %} Добавить страну {% endblock %}
 {% block content %}
+    <h1 class="text-danger">Добавить страну</h1>
     <form method="post" action="">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_ul }}
         <button class="btn btn-success" type="submit">Добавить</button>
     </form>
 {% endblock %}

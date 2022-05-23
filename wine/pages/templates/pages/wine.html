@@ -9,10 +9,12 @@
 <p>
     {{ wine.text }}
 </p>
-<h1>Изменить вино</h1>
+<h1 class="text-danger">Изменить вино</h1>
 <form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success" type="submit">Изменить</button>
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <button class="btn btn-warning" type="submit">Изменить</button>
+    </div>
 </form>
 {% endblock %}
