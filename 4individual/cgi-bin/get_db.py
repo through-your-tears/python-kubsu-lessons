@@ -24,18 +24,25 @@ try:
                     </ul>
                     <h1> Список по сладости </h1>
                     <ul>''')
+except Exception:
+    pass
+try:
     for row in get_all_sweetness():
         print(f'<li>{row}</li>')
     print('''
                     </ul>
                     <h1> Список сортов </h1>
                     <ul>''')
+try:
     for row in get_all_wine_grades():
         print(f'<li>{row}</li>')
     print('''
                     </ul>
                     <h1> Список вина </h1>
                     <ul>''')
+except Exception:
+    pass
+try:
     for row in get_all_wines():
         print(f'<li>{row}</li>')
 
